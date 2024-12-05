@@ -7,7 +7,15 @@ import 'package:flutter/material.dart';
 class CustomNetworkImage extends StatelessWidget {
   /// The line `const CustomNetworkImage({super.key});` is defining a constructor
   /// for the `CustomNetworkImage` class.
-  const CustomNetworkImage({super.key, this.imageUrl, this.emptyWidget, this.memCache = const CustomMemCache(height: 200, width: 200), this.boxFit = BoxFit.cover, this.loadingWidget, this.size,});
+  const CustomNetworkImage({
+    super.key,
+    this.imageUrl,
+    this.emptyWidget,
+    this.memCache = const CustomMemCache(height: 300, width: 300),
+    this.boxFit = BoxFit.cover,
+    this.loadingWidget,
+    this.size,
+  });
 
   ///  Image source address
   final String? imageUrl;
@@ -25,12 +33,12 @@ class CustomNetworkImage extends StatelessWidget {
   final Widget? loadingWidget;
 
   /// Image size
-  final Size? size; 
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
     final url = imageUrl;
-    if(url == null || url.isEmpty) return const SizedBox();
+    if (url == null || url.isEmpty) return const SizedBox();
     return CachedNetworkImage(
       imageUrl: url,
       memCacheHeight: memCache.height,
@@ -39,12 +47,13 @@ class CustomNetworkImage extends StatelessWidget {
       width: size?.width,
       height: size?.height,
       errorListener: (value) {
-        if(kDebugMode) debugPrint('Error: $value');
+        if (kDebugMode) debugPrint('Error: $value');
       },
       progressIndicatorBuilder: (context, url, progress) {
-        return loadingWidget ?? const Center(
-          child: CircularProgressIndicator(),
-        );
+        return loadingWidget ??
+            const Center(
+              child: CircularProgressIndicator(),
+            );
       },
       errorWidget: (context, url, error) {
         return emptyWidget ?? const SizedBox();

@@ -8,7 +8,7 @@ part of 'movie_now_playing_results.dart';
 
 Results _$ResultsFromJson(Map<String, dynamic> json) => Results(
       adult: json['adult'] as bool?,
-      backdropPath: json['backdropPath'] as String?,
+      backdropPath: json['backdrop_path'] as String?,
       genreIds: (json['genreIds'] as List<dynamic>?)
           ?.map((e) => (e as num).toInt())
           .toList(),
@@ -27,7 +27,7 @@ Results _$ResultsFromJson(Map<String, dynamic> json) => Results(
 
 Map<String, dynamic> _$ResultsToJson(Results instance) => <String, dynamic>{
       'adult': instance.adult,
-      'backdropPath': instance.backdropPath,
+      'backdrop_path': instance.backdropPath,
       'genreIds': instance.genreIds,
       'id': instance.id,
       'originalLanguage': instance.originalLanguage,

@@ -6,6 +6,8 @@ import 'package:flutter_movieapp/feature/home/view_model/home_view_model.dart';
 import 'package:flutter_movieapp/feature/home/view_model/state/home_bloc_state.dart';
 import 'package:flutter_movieapp/product/navigator/app_router.dart';
 import 'package:flutter_movieapp/product/state/base/base_state.dart';
+import 'package:flutter_movieapp/product/utility/extensions/string_extension.dart';
+import 'package:flutter_movieapp/product/widget/project_image/project_network_image.dart';
 
 @RoutePage()
 class HomeView extends StatefulWidget {
@@ -44,11 +46,20 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
                 builder: (context, state) {
                   final mov = state.movieNow?.results ?? [];
                   return ListView.builder(
+                    scrollDirection: Axis.horizontal,
                     itemCount: mov.length,
                     itemBuilder: (context, index) {
                       final m = mov[index];
-                      return ListTile(
-                        title: Text(m.title ?? ''),
+                      //print("Backdrop Path: ${m.backdropPath}");
+                      return Column(
+                        children: [
+                          Text(m.title ?? ''),
+                          Center(child: ProjectNetworkImage(
+                            url: m.backdropPath.toMovieImage,
+                            icon: Icons.add,
+                            text: 'BİRŞEY BULUNAMADI',
+                          ),)
+                        ],
                       );
                     },
                   );

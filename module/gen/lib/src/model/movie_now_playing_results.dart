@@ -7,6 +7,7 @@ part 'movie_now_playing_results.g.dart';
 @JsonSerializable()
 class Results extends INetworkModel<Results> with EquatableMixin {
   final bool? adult;
+  @JsonKey(name: 'backdrop_path')
   final String? backdropPath;
   final List<int>? genreIds;
   final int? id;
