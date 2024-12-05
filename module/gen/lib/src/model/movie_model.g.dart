@@ -1,14 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'movie_now_playing_model.dart';
+part of 'movie_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-MovieNowPlayingModel _$MovieNowPlayingModelFromJson(
-        Map<String, dynamic> json) =>
-    MovieNowPlayingModel(
+MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
       dates: json['dates'] == null
           ? null
           : Dates.fromJson(json['dates'] as Map<String, dynamic>),
@@ -20,8 +18,7 @@ MovieNowPlayingModel _$MovieNowPlayingModelFromJson(
       totalResults: (json['totalResults'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$MovieNowPlayingModelToJson(
-        MovieNowPlayingModel instance) =>
+Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
     <String, dynamic>{
       'dates': instance.dates,
       'page': instance.page,

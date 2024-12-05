@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'movie_now_playing_date_model.dart';
+part of 'movie_date_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

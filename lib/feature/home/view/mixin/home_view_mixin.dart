@@ -20,10 +20,7 @@ mixin HomeViewMixin on BaseState<HomeView>{
 
     AppGetItRead.appServiceManager.managerError(onErrorStatus: _errorManager.hanleError);
 
-    _homeViewModel = HomeViewModel(movieIservice: MovieGetService(appServiceManagetBaseState));
-
-    //_homeViewModel.fetchMovieNowPlaying()
-;
+    _homeViewModel = HomeViewModel(movieIservice: MovieGetService(appServiceManagetBaseState))..fetchMovieNowPlaying();
 
   }
 }

@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:vexana/vexana.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'movie_now_playing_results.g.dart';
+part 'movie_results_model.g.dart';
 
 @JsonSerializable()
 class Results extends INetworkModel<Results> with EquatableMixin {

@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
-import 'package:gen/src/model/movie_now_playing_date_model.dart';
-import 'package:gen/src/model/movie_now_playing_results.dart';
+import 'package:gen/src/model/movie_date_model.dart';
+import 'package:gen/src/model/movie_results_model.dart';
 import 'package:vexana/vexana.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'movie_now_playing_model.g.dart';
+part 'movie_model.g.dart';
 
 @JsonSerializable()
-class MovieNowPlayingModel extends INetworkModel<MovieNowPlayingModel>
+class MovieModel extends INetworkModel<MovieModel>
     with EquatableMixin {
   final Dates? dates;
   final int? page;
@@ -15,23 +15,23 @@ class MovieNowPlayingModel extends INetworkModel<MovieNowPlayingModel>
   final int? totalPages;
   final int? totalResults;
 
-  MovieNowPlayingModel(
+  MovieModel(
       {this.dates,
       this.page,
       this.results,
       this.totalPages,
       this.totalResults});
 
-  factory MovieNowPlayingModel.fromJson(Map<String, dynamic> json) =>
-      _$MovieNowPlayingModelFromJson(json);
+  factory MovieModel.fromJson(Map<String, dynamic> json) =>
+       _$MovieModelFromJson(json);
 
   @override
-  MovieNowPlayingModel fromJson(Map<String, dynamic> json) {
-    return _$MovieNowPlayingModelFromJson(json);
+  MovieModel fromJson(Map<String, dynamic> json) {
+    return _$MovieModelFromJson(json);
   }
 
   @override
-  Map<String, dynamic>? toJson() => _$MovieNowPlayingModelToJson(this);
+  Map<String, dynamic>? toJson() => _$MovieModelToJson(this);
 
   @override
   // TODO: implement props

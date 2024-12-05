@@ -7,6 +7,7 @@ import 'package:flutter_movieapp/feature/home/view_model/state/home_bloc_state.d
 import 'package:flutter_movieapp/product/navigator/app_router.dart';
 import 'package:flutter_movieapp/product/state/base/base_state.dart';
 import 'package:flutter_movieapp/product/utility/extensions/string_extension.dart';
+import 'package:flutter_movieapp/product/widget/carousel_slider/carousel_autoplay_slider.dart';
 import 'package:flutter_movieapp/product/widget/project_image/project_network_image.dart';
 
 @RoutePage()
@@ -41,6 +42,14 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
         ),
         body: Column(
           children: [
+            BlocBuilder<HomeViewModel, HomeBlocState>(
+              builder: (context, state) {
+                if(state.movieNow?.results == null || state.movieNow!.results!.isEmpty) {
+                  return const Center(child: SizedBox(),);
+                }
+                return CarouselAutoplaySlider(movieModel: state.movieNow!);
+              },
+             ),
             Expanded(
               child: BlocBuilder<HomeViewModel, HomeBlocState>(
                 builder: (context, state) {

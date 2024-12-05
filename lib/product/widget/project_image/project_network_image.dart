@@ -16,6 +16,7 @@ class ProjectNetworkImage extends StatelessWidget {
     return CustomNetworkImage(
       imageUrl: url,
       size: Size(160, 220),
+      //loadingWidget: Assets.lotties.animZombie.lottie(package: 'gen', height: 150),
       loadingWidget: Assets.lotties.animZombie.lottieBuilder(),
       emptyWidget: Column(
         children: [

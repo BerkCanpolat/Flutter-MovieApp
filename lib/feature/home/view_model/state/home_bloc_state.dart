@@ -3,13 +3,13 @@ import 'package:gen/gen.dart';
 
 final class HomeBlocState extends Equatable{
   final bool isLoading;
-  final MovieNowPlayingModel? movieNow;
+  final MovieModel? movieNow;
 
   const HomeBlocState({required this.isLoading, this.movieNow});
 
   HomeBlocState copyWith({
     bool? isLoading,
-    MovieNowPlayingModel? movieNow
+    MovieModel? movieNow
   }) {
     return HomeBlocState(
       isLoading: isLoading ?? this.isLoading,

@@ -1,6 +1,6 @@
 import 'package:flutter_movieapp/product/service/interface/movie_IService.dart';
 import 'package:flutter_movieapp/product/service/manager/app_service_path_enums.dart';
-import 'package:gen/src/model/movie_now_playing_model.dart';
+import 'package:gen/gen.dart';
 import 'package:vexana/vexana.dart';
 
 final class MovieGetService extends MovieIservice{
@@ -9,10 +9,10 @@ final class MovieGetService extends MovieIservice{
   final INetworkManager<EmptyModel> _manager;
 
   @override
-  Future<MovieNowPlayingModel?> getMovieNowPlaying() async {
-    final response = await _manager.send<MovieNowPlayingModel, MovieNowPlayingModel?>(
+  Future<MovieModel?> getMovieNowPlaying() async {
+    final response = await _manager.send<MovieModel, MovieModel?>(
       AppServicePathEnums.nowPlaying.value, 
-      parseModel: MovieNowPlayingModel(), 
+      parseModel: MovieModel(), 
       method: RequestType.GET
     );
 
