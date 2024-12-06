@@ -18,4 +18,18 @@ final class HomeViewModel extends Cubit<HomeBlocState>{
     print("New State: ${state.movieNow}");
     changeLoading();
   }
+
+  Future<void> fetchTvTopRated() async {
+    changeLoading();
+    final response = await _movieIservice.getTvTopRated();
+    emit(state.copyWith(tvSeriesModel: response));
+    changeLoading();
+  }
+
+  Future<void> fetchMoviePopular() async{
+    changeLoading();
+    final response = await _movieIservice.getMovieTopRated();
+    emit(state.copyWith(moviePopular: response));
+    changeLoading();
+  }
 }

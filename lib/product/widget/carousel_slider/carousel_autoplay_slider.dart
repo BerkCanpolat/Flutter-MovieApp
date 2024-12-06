@@ -1,11 +1,12 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_movieapp/feature/home/view/widget/home_carousel_image.dart';
+import 'package:flutter_movieapp/product/utility/constants/project_radius.dart';
 import 'package:flutter_movieapp/product/utility/extensions/string_extension.dart';
-import 'package:flutter_movieapp/product/widget/project_image/project_network_image.dart';
 import 'package:gen/gen.dart';
 
 class CarouselAutoplaySlider extends StatelessWidget {
-  final MovieModel movieModel;
+  final TvSeriesModel movieModel;
   const CarouselAutoplaySlider({super.key, required this.movieModel});
 
   @override
@@ -22,13 +23,13 @@ class CarouselAutoplaySlider extends StatelessWidget {
           return Column(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: ProjectNetworkImage(
+                borderRadius: BorderRadius.circular(ProjectRadius.medium.value),
+                child: HomeCarouselImage(
                   url: movData.toMovieImage,
                 ),
               ),
-              SizedBox(height: 10,),
-              Text(movieModel.results?[index].title ?? '')
+              const SizedBox(height: 10,),
+              Text(movieModel.results?[index].name ?? '')
             ],
           );
         },
