@@ -6,7 +6,7 @@ import 'package:vexana/vexana.dart';
 
 final class SearchManagerService extends NetworkManager<EmptyModel>{
   SearchManagerService.search() : super(
-    options: BaseOptions(baseUrl: AppEnvironmentEnums.baseUrl.value, headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZDU5MDA2NmE0MzRkODZjNjYxYjRlYTA3ZmE2MThlOCIsIm5iZiI6MTczMjQ0NjI5MS4zOTM4MDMxLCJzdWIiOiI2NzQzMDM0YzgzMTU4YjBiMjY0N2JiYjQiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.LKYwzDJP9d5Ox-G5dPdTMVhRsTejaUjIYri0s4hGP7A'})
+    options: BaseOptions(baseUrl: AppEnvironmentEnums.baseUrl.value,)
   );
 
   void managerError({required ValueChanged<int> onErrorStatus}) {

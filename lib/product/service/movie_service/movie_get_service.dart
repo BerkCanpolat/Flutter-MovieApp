@@ -42,6 +42,10 @@ final class MovieGetService extends MovieIservice{
       parseModel: MovieModel(), 
       method: RequestType.GET,      
     );
+    print("API Response: ${response.data}");
+  if (response.error != null) {
+    print("API Error: ${response.error}");
+  }
     return response.data;
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movieapp/feature/home/view_model/home_view_model.dart';
 import 'package:flutter_movieapp/feature/search/view/search_view.dart';
 import 'package:flutter_movieapp/feature/search/view_model/search_view_model.dart';
+import 'package:flutter_movieapp/product/service/movie_service/movie_get_service.dart';
 import 'package:flutter_movieapp/product/service/search_manager/search_error_manager.dart';
 import 'package:flutter_movieapp/product/service/search_service/search_service.dart';
 import 'package:flutter_movieapp/product/state/app_get_it_read.dart';
@@ -23,6 +25,16 @@ mixin SearchViewMixin on BaseState<SearchView>{
 
     AppGetItRead.searchManagerService.managerError(onErrorStatus: _searchErrorManager.hanleError);
 
-    _searchViewModel = SearchViewModel(SearchService(searchServiceManagerBaseState));
+    _searchViewModel = SearchViewModel(SearchService(searchServiceManagerBaseState), MovieGetService(appServiceManagetBaseState));
+
+    _searchViewModel.getSearchMovieTopRated();
+
   }
+
+   @override
+   void dispose() {
+     // TODO: implement dispose
+     super.dispose();
+     searchController.dispose();
+   }
 }

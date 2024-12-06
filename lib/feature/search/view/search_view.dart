@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movieapp/feature/search/view/mixin/search_view_mixin.dart';
+import 'package:flutter_movieapp/feature/search/view/widget/search_empty_bloc_widget.dart';
 import 'package:flutter_movieapp/feature/search/view/widget/search_image.dart';
 import 'package:flutter_movieapp/feature/search/view_model/search_view_model.dart';
 import 'package:flutter_movieapp/feature/search/view_model/state/search_bloc_state.dart';
@@ -34,36 +35,43 @@ class _SearchViewState extends BaseState<SearchView> with SearchViewMixin {
                   backgroundColor: Colors.grey.withOpacity(0.3),
                   onChanged: (value) {
                     searchViewModel.searchGetBloc(value);
-                    print(value);
+                      print(value);
                   },
                 ),
-                BlocBuilder<SearchViewModel, SearchBlocState>(
-                  builder: (context, state) {
-                    final searchMov = state.searchMovieModel?.results;
+               BlocBuilder<SearchViewModel, SearchBlocState>(
+                 builder: (context, state) {
+                  debugPrint("State değişti: ${state.searchMovieModel}");
+                  final searchMov = state.searchMovieModel?.results;
+                   if(state.isLoading) {
+                    return const Center(child: CircularProgressIndicator(),);
+                   } else if(searchController.text.isEmpty) {
+                    return SearchMovieEmptyBlocWidget();
+                   } else {
                     return state.searchMovieModel == null ? const Center(child: SizedBox.shrink(),) : GridView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: searchMov?.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 5,
-                    childAspectRatio: 1.2 / 2 
-                   ), 
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              searchMov?[index].backdropPath == null ? const SizedBox.shrink()
-                              : SearchImage(
-                                url: searchMov?[index].backdropPath.toMovieImage,
-                              ),
-                              Text(searchMov?[index].originalTitle ?? '')
-                            ],
-                          );
-                        },
-                      );
-                  },
-                ),
+                     shrinkWrap: true,
+                     physics: NeverScrollableScrollPhysics(),
+                     itemCount: searchMov?.length,
+                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                   crossAxisCount: 3,
+                   mainAxisSpacing: 15,
+                   crossAxisSpacing: 5,
+                   childAspectRatio: 1.2 / 2 
+                  ), 
+                       itemBuilder: (context, index) {
+                         return Column(
+                           children: [
+                             searchMov?[index].backdropPath == null ? const SizedBox.shrink()
+                             : SearchImage(
+                               url: searchMov?[index].backdropPath.toMovieImage,
+                             ),
+                             Text(searchMov?[index].originalTitle ?? '')
+                           ],
+                         );
+                       },
+                     );
+                   }
+                 },
+               ),
               ],
             ),
           ),
