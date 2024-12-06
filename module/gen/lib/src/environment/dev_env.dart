@@ -12,6 +12,9 @@ final class DevEnv implements AppConfiguration{
   @EnviedField(varName: 'API_KEY')
   static final String _apiKey = _DevEnv._apiKey;
 
+  @EnviedField(varName: 'SEARCH_API')
+  static final String _searchApi = _DevEnv._searchApi;
+
 
 
   @override
@@ -21,4 +24,8 @@ final class DevEnv implements AppConfiguration{
   @override
   // TODO: implement baseUrl
   String get baseUrl => _baseUrl;
+  
+  @override
+  // TODO: implement searchApi
+  String get searchApi => _searchApi;
 }

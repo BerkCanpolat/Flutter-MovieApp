@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_movieapp/feature/home/view/deneme_view.dart';
 import 'package:flutter_movieapp/feature/home/view/home_view.dart';
+import 'package:flutter_movieapp/feature/search/view/search_view.dart';
 import 'package:flutter_movieapp/feature/splash/splash_view.dart';
 import 'package:flutter_movieapp/product/widget/bottom_appar/bottom_appbar.dart';
 
@@ -15,7 +15,7 @@ final class AppRouter extends _$AppRouter{
     AutoRoute(page: MainRoute.page, 
     children: [
       AutoRoute(page: HomeRoute.page),
-      AutoRoute(page: DenemeRoute.page),
+      AutoRoute(page: SearchRoute.page),
     ]),
   ];
 }

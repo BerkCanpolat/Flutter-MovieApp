@@ -18,12 +18,12 @@ final class AppBottomNavigationBar extends StatelessWidget {
       currentIndex: pageIndex,
       items: const [
         BottomNavigationBarItem(
-          label: 'HOME',
-          icon: const Icon(Icons.home),
+          label: 'Home',
+          icon: Icon(Icons.home),
         ),
         BottomNavigationBarItem(
-          label: 'HOME',
-          icon: const Icon(Icons.category),
+          label: 'Search',
+          icon: Icon(Icons.search),
         ),
       ],
     );

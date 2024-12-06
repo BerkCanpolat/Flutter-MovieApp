@@ -32,6 +32,7 @@ final class AppInitialized {
   print(AppEnvironmentEnums.baseUrl.value);
   print(AppEnvironmentEnums.apiKey.value);
   print("Final Request URL: ${AppEnvironmentEnums.baseUrl.value}${AppServicePathEnums.nowPlaying.value}");
+  print("SEARCH APİ KEY; ${AppEnvironmentEnums.searchApi.value}");
   AppGetIt.setupGetIt();
 }
 }

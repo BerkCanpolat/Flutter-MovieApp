@@ -38,9 +38,9 @@ final class MovieGetService extends MovieIservice{
   @override
   Future<MovieModel?> getMovieTopRated() async {
     final response = await _manager.send<MovieModel, MovieModel?>(
-      AppServicePathEnums.movieTopRated.value, 
+      AppServicePathEnums.movieTopRated.value,
       parseModel: MovieModel(), 
-      method: RequestType.GET
+      method: RequestType.GET,      
     );
     return response.data;
   }

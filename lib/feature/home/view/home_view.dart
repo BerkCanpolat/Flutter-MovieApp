@@ -28,7 +28,7 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
           actions: [
             IconButton(
                 onPressed: () {
-                  context.router.push(const DenemeRoute());
+                  //context.router.push(const DenemeRoute());
                 },
                 icon: Icon(Icons.details)),
             BlocBuilder<HomeViewModel, HomeBlocState>(
