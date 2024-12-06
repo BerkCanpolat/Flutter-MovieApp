@@ -12,6 +12,7 @@ class Results extends INetworkModel<Results> with EquatableMixin {
   final List<int>? genreIds;
   final int? id;
   final String? originalLanguage;
+  @JsonKey(name: 'original_title')
   final String? originalTitle;
   final String? overview;
   final double? popularity;

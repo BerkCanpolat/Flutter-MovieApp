@@ -1,7 +1,5 @@
 import 'package:flutter_movieapp/product/service/interface/search_IService.dart';
 import 'package:flutter_movieapp/product/service/manager/app_service_path_enums.dart';
-import 'package:flutter_movieapp/product/utility/constants/enums/environment_enums.dart';
-import 'package:gen/src/model/movie_model.dart';
 import 'package:gen/src/model/search_movie_model.dart';
 import 'package:vexana/vexana.dart';
 
@@ -22,23 +20,6 @@ final class SearchService extends SearchIservice{
         'query': text
       }
     );
-    return response.data;
-  }
-
-  @override
-  Future<MovieModel?> denemeGet() async {
-    final response = await _searchManager.send<MovieModel, MovieModel?>(
-      AppServicePathEnums.movieTopRated.value, 
-      parseModel: MovieModel(), 
-      method: RequestType.GET,
-      queryParameters: {
-        'api_key': AppEnvironmentEnums.apiKey.value
-      }
-    );
-    print("${response}");
-    print(response.data);
-    print('${AppEnvironmentEnums.apiKey.value}');
-    print(denemeGet());
     return response.data;
   }
 }

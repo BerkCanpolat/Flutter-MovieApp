@@ -30,7 +30,11 @@ class SearchEmptyMoviListWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Text('FİLM İSMİ')
+            Expanded(
+              child: Text(data?.results?[index].originalTitle ?? '', maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(
+                fontSize: 14
+              ),),
+            )
           ],
         );
       },
