@@ -48,4 +48,15 @@ final class MovieGetService extends MovieIservice{
   }
     return response.data;
   }
+  
+  @override
+  Future<MovieDetailed?> getMovieDetails(int id) async {
+    final response = await _manager.send<MovieDetailed, MovieDetailed?>(
+      AppServicePathEnums.movieDetails.withId(id), 
+      parseModel: MovieDetailed(), 
+      method: RequestType.GET
+    );
+
+    return response.data;
+    }
 }

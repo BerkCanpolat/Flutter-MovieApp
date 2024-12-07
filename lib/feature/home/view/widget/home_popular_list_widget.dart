@@ -21,10 +21,14 @@ class HomePopularListWidget extends StatelessWidget {
             padding: const ProjectPadding.allSmall(),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(ProjectRadius.small.value),
-              child: ProjectNetworkImage(
-                url: data?.results?[index].backdropPath.toMovieImage.toString(),
-                icon: Icons.add,
-                text: 'BİRŞEY BULUNAMADI',
+              child: SizedBox(
+                width: 125,
+                height: 195,
+                child: ProjectNetworkImage(
+                  url: data?.results?[index].backdropPath.toMovieImage.toString(),
+                  icon: Icons.add,
+                  text: 'BİRŞEY BULUNAMADI',
+                ),
               ),
             ),
           );
