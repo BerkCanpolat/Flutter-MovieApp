@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movieapp/feature/home/view/widget/home_popular_list_widget.dart';
-import 'package:flutter_movieapp/feature/home/view_model/home_view_model.dart';
-import 'package:flutter_movieapp/feature/home/view_model/state/home_bloc_state.dart';
+part of '../home_view.dart';
 
-class HomePopularBlocWidget extends StatelessWidget {
-  const HomePopularBlocWidget({
+
+
+class _HomePopularBlocWidget extends StatelessWidget {
+  const _HomePopularBlocWidget({
     super.key,
   });
 

@@ -8,8 +8,13 @@ import 'package:flutter_movieapp/feature/details/view_model/details_view_model.d
 import 'package:flutter_movieapp/feature/details/view_model/state/details_bloc_state.dart';
 import 'package:flutter_movieapp/product/navigator/app_router.dart';
 import 'package:flutter_movieapp/product/state/base/base_state.dart';
+import 'package:flutter_movieapp/product/utility/constants/project_radius.dart';
 import 'package:flutter_movieapp/product/utility/extensions/string_extension.dart';
 import 'package:flutter_movieapp/product/widget/project_image/project_network_image.dart';
+import 'package:flutter_movieapp/product/widget/project_padding/project_padding.dart';
+
+part 'widgets/details_mainbloc_widget.dart';
+part 'widgets/details_recom_mainbloc_widget.dart';
 
 @RoutePage()
 class DetailsView extends StatefulWidget {
@@ -28,106 +33,15 @@ class _DetailsViewState extends BaseState<DetailsView> with DetailsMixin {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => detailsModel,
-      child: Scaffold(
+      child: const Scaffold(
         body: SingleChildScrollView(
           child: Column(
             children: [
-              BlocBuilder<DetailsViewModel, DetailsBlocState>(
-                builder: (context, state) {
-                  final details = state.movieDetailed;
-                  // Türler (genres) için kontrol
-                  final genreText = (details?.genres?.isNotEmpty ?? false)
-                      ? details?.genres!.map((e) => e.name).join(', ')
-                      : 'Tür bilgisi yok';
-                  if (state.isLoading) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else {
-                    return state.movieDetailed == null
-                        ? const Center(
-                            child: Text('NUL GELDİ'),
-                          )
-                        : Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Stack(
-                                children: [
-                                  SizedBox(
-                                    width: double.infinity,
-                                    child: ProjectNetworkImage(
-                                      url: details?.posterPath.toMovieImage,
-                                    ),
-                                  ),
-                                  SafeArea(
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        IconButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            icon: Icon(
-                                              Icons.arrow_back_ios,
-                                              color: Colors.white,
-                                            ))
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Text(details?.title ?? ''),
-                              Row(
-                                children: [
-                                  Text(details?.releaseDate != null
-                                      ? DateTime.parse(details!.releaseDate!)
-                                          .year
-                                          .toString()
-                                      : 'Tarih yok'),
-                                  Text(genreText ?? '')
-                                ],
-                              ),
-                              Text(details?.overview ?? '')
-                            ],
-                          );
-                  }
-                },
-              ),
-              BlocBuilder<DetailsViewModel, DetailsBlocState>(
-                builder: (context, state) {
-                  final recom = state.movieRecom?.results;
-                  if (state.isLoading) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else {
-                    return state.movieRecom?.results == null
-                        ? const Text('RECOM NULL GEldi')
-                        : GridView.builder(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                            itemCount: recom?.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 3,
-                                    mainAxisSpacing: 15,
-                                    crossAxisSpacing: 5,
-                                    childAspectRatio: 1.2 / 2),
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                onTap: () {
-                                  context.router.push(DetailsRoute(id: recom?[index].id ?? 0));
-                                },
-                                child: ProjectNetworkImage(
-                                  url: recom?[index].posterPath.toMovieImage,
-                                ),
-                              );
-                            },
-                          );
-                  }
-                },
-              ),
+              /// Picture - Film Name - Film Year - Includes Description Information
+              _DetailsBlocMainWidget(),
+
+              /// Recommended similar films
+              _DetailsRecomBlocMainWidget(),
             ],
           ),
         ),
