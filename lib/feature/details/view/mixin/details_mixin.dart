@@ -19,7 +19,9 @@ mixin DetailsMixin on BaseState<DetailsView>{
     
     AppGetItRead.appServiceManager.managerError(onErrorStatus: _errorManager.hanleError);
 
-    _viewModel = DetailsViewModel(movieService: MovieGetService(appServiceManagetBaseState))..fetchMovieDetails(widget.id);
+    _viewModel = DetailsViewModel(movieService: MovieGetService(appServiceManagetBaseState))
+    ..fetchMovieDetails(widget.id)
+    ..fetchMovieRecom(widget.id);
 
   }
 }

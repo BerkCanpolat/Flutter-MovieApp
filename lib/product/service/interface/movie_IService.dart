@@ -5,4 +5,5 @@ abstract class MovieIservice {
   Future<TvSeriesModel?> getTvTopRated();
   Future<MovieModel?> getMovieTopRated();
   Future<MovieDetailed?> getMovieDetails(int id);
+  Future<MovieRecommendation?> getMovieRecom(int id);
 }

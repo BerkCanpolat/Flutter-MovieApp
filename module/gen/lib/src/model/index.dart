@@ -11,3 +11,5 @@ export 'movie_details_country_model.dart';
 export 'movie_details_product_model.dart';
 export 'movie_details_genres_model.dart';
 export 'movie_details_belong_model.dart';
+export 'movie_recom_model.dart';
+export 'movie_recom_result_model.dart';

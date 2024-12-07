@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movieapp/feature/details/view/mixin/details_mixin.dart';
 import 'package:flutter_movieapp/feature/details/view_model/details_view_model.dart';
 import 'package:flutter_movieapp/feature/details/view_model/state/details_bloc_state.dart';
+import 'package:flutter_movieapp/product/navigator/app_router.dart';
 import 'package:flutter_movieapp/product/state/base/base_state.dart';
 import 'package:flutter_movieapp/product/utility/extensions/string_extension.dart';
 import 'package:flutter_movieapp/product/widget/project_image/project_network_image.dart';
@@ -22,7 +23,7 @@ class DetailsView extends StatefulWidget {
   State<DetailsView> createState() => _DetailsViewState();
 }
 
-class _DetailsViewState extends BaseState<DetailsView> with DetailsMixin{
+class _DetailsViewState extends BaseState<DetailsView> with DetailsMixin {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -34,44 +35,96 @@ class _DetailsViewState extends BaseState<DetailsView> with DetailsMixin{
               BlocBuilder<DetailsViewModel, DetailsBlocState>(
                 builder: (context, state) {
                   final details = state.movieDetailed;
-                  String genreText = details!.genres!.map((e) => e.name).join(', ');
-                  if(state.isLoading) {
-                    return const Center(child: CircularProgressIndicator(),);
+                  // Türler (genres) için kontrol
+                  final genreText = (details?.genres?.isNotEmpty ?? false)
+                      ? details?.genres!.map((e) => e.name).join(', ')
+                      : 'Tür bilgisi yok';
+                  if (state.isLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
                   } else {
-                    return state.movieDetailed == null ? const Center(child: Text('NUL GELDİ'),)
-                    : Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Stack(
-                          children: [
-                            SizedBox(
-                              width: double.infinity,
-                              child: ProjectNetworkImage(
-                                url: details.posterPath.toMovieImage,
-                              ),
-                            ),
-                            SafeArea(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                    return state.movieDetailed == null
+                        ? const Center(
+                            child: Text('NUL GELDİ'),
+                          )
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Stack(
                                 children: [
-                                  IconButton(onPressed: (){
-                                    Navigator.of(context).pop();
-                                  }, icon: Icon(Icons.arrow_back_ios, color: Colors.white,))
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: ProjectNetworkImage(
+                                      url: details?.posterPath.toMovieImage,
+                                    ),
+                                  ),
+                                  SafeArea(
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        IconButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            icon: Icon(
+                                              Icons.arrow_back_ios,
+                                              color: Colors.white,
+                                            ))
+                                      ],
+                                    ),
+                                  )
                                 ],
                               ),
-                            )
-                          ],
-                        ),
-                        Text(details.title ?? ''),
-                        Row(
-                          children: [
-                            Text(details.releaseDate != null ? DateTime.parse(details.releaseDate!).year.toString() : 'Tarih yok' ),
-                            Text(genreText)
-                          ],
-                        ),
-                        Text(details.overview ?? '')
-                      ],
+                              Text(details?.title ?? ''),
+                              Row(
+                                children: [
+                                  Text(details?.releaseDate != null
+                                      ? DateTime.parse(details!.releaseDate!)
+                                          .year
+                                          .toString()
+                                      : 'Tarih yok'),
+                                  Text(genreText ?? '')
+                                ],
+                              ),
+                              Text(details?.overview ?? '')
+                            ],
+                          );
+                  }
+                },
+              ),
+              BlocBuilder<DetailsViewModel, DetailsBlocState>(
+                builder: (context, state) {
+                  final recom = state.movieRecom?.results;
+                  if (state.isLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
                     );
+                  } else {
+                    return state.movieRecom?.results == null
+                        ? const Text('RECOM NULL GEldi')
+                        : GridView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                            itemCount: recom?.length,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3,
+                                    mainAxisSpacing: 15,
+                                    crossAxisSpacing: 5,
+                                    childAspectRatio: 1.2 / 2),
+                            itemBuilder: (context, index) {
+                              return InkWell(
+                                onTap: () {
+                                  context.router.push(DetailsRoute(id: recom?[index].id ?? 0));
+                                },
+                                child: ProjectNetworkImage(
+                                  url: recom?[index].posterPath.toMovieImage,
+                                ),
+                              );
+                            },
+                          );
                   }
                 },
               ),

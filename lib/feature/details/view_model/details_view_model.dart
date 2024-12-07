@@ -17,4 +17,11 @@ final class DetailsViewModel extends Cubit<DetailsBlocState>{
     emit(state.copyWith(movieDetailed: response));
     changeLoading();
   }
+
+  Future<void> fetchMovieRecom(int id) async {
+    changeLoading();
+    final response = await _movieIservice.getMovieRecom(id);
+    emit(state.copyWith(movieRecom: response));
+    changeLoading();
+  }
 }
