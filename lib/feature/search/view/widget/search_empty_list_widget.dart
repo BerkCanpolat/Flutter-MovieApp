@@ -41,7 +41,10 @@ class SearchEmptyMoviListWidget extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: Text(data?.results?[index].originalTitle ?? '', maxLines: 2, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.headlineSmall),
+                child: Text(data?.results?[index].originalTitle ?? '', 
+                maxLines: 2, 
+                overflow: TextOverflow.ellipsis, 
+                style: Theme.of(context).textTheme.labelLarge),
               )
             ],
           ),

@@ -19,4 +19,7 @@ final class ProjectPadding extends EdgeInsets{
 
   /// [ProjectPadding.onlyTopAndBottom] is top 10 , bottom 10
   const ProjectPadding.onlyTopAndBottom() : super.only(top: 10, bottom: 10);
+
+  /// [ProjectPadding.onlyTop] is top 22
+  const ProjectPadding.onlyTop() : super.only(top: 22);
 }

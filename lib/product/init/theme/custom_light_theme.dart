@@ -15,7 +15,8 @@ final class CustomLightTheme implements CustomTheme{
         fontSize: 18
       ),
       headlineSmall: TextStyle(
-        fontSize: 17
+        fontSize: 17,
+        color: Colors.black
       ),
       titleMedium: TextStyle(
         fontSize: 18,

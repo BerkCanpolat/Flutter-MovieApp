@@ -61,12 +61,25 @@ class $AssetsLottiesGen {
   LottieGenImage get loading =>
       const LottieGenImage('assets/lotties/loading.json');
 
+  /// File path: assets/lotties/moon.json
+  LottieGenImage get moon => const LottieGenImage('assets/lotties/moon.json');
+
   /// File path: assets/lotties/netflix.json
   LottieGenImage get netflix =>
       const LottieGenImage('assets/lotties/netflix.json');
 
+  /// File path: assets/lotties/sun.json
+  LottieGenImage get sun => const LottieGenImage('assets/lotties/sun.json');
+
+  /// File path: assets/lotties/tr.json
+  LottieGenImage get tr => const LottieGenImage('assets/lotties/tr.json');
+
+  /// File path: assets/lotties/us.json
+  LottieGenImage get us => const LottieGenImage('assets/lotties/us.json');
+
   /// List of all assets
-  List<LottieGenImage> get values => [animZombie, loading, netflix];
+  List<LottieGenImage> get values =>
+      [animZombie, loading, moon, netflix, sun, tr, us];
 }
 
 class Assets {

@@ -1,7 +1,5 @@
 part of '../home_view.dart';
 
-
-
 class _HomePopularBlocWidget extends StatelessWidget {
   const _HomePopularBlocWidget({
     super.key,
@@ -18,9 +16,18 @@ class _HomePopularBlocWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: const ProjectPadding.onlyLeftBottomTextSmall(),
-                child: Text('Popular Movies', style: Theme.of(context).textTheme.labelLarge,),
+                child: BlocBuilder<LanguageCubit, LanguageState>(
+                  builder: (context, state) {
+                    return Text(
+                      LocaleKeys.home_popular.tr(),
+                      style: Theme.of(context).textTheme.labelLarge,
+                    );
+                  },
+                ),
               ),
-              HomePopularListWidget(data: state.movieTopRated,)
+              HomePopularListWidget(
+                data: state.movieTopRated,
+              )
             ],
           ),
         );

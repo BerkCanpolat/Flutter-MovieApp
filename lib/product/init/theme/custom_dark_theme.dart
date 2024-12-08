@@ -11,10 +11,11 @@ final class CustomDarkTheme implements CustomTheme{
     textTheme: const TextTheme(
       labelLarge: TextStyle(
         fontWeight: FontWeight.w600,
-        fontSize: 18
+        fontSize: 18,
       ),
       headlineSmall: TextStyle(
-        fontSize: 17
+        fontSize: 17,
+        color: Colors.white
       ),
       titleMedium: TextStyle(
         fontSize: 18,

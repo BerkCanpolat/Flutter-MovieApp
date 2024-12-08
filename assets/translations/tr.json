@@ -1,3 +1,17 @@
 {
-    "home": "Ana Sayfa"
+    "home":{
+        "bottomHome": "Anasayfa",
+        "bottomSearch": "Ara",
+        "bottomSettings": "Ayarlar",
+        "nowplaying": "Şu Anda Oynayan Filmler",
+        "popular": "Popüler Filmler"
+    },
+    "search":{
+        "searchmovie": "Film Ara",
+        "morelike": "Bunun Gibi Daha Fazlası"
+    },
+    "settings": {
+        "themeChange": "Tema Değiştir",
+        "language": "Dil Değiştir"
+    }
 }

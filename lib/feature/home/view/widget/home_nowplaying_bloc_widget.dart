@@ -16,9 +16,18 @@ class _HomeMovieBlocWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: const ProjectPadding.onlyLeftBottomTextSmall(),
-                child: Text('Now Playing Movies', style: Theme.of(context).textTheme.labelLarge,),
+                child: BlocBuilder<LanguageCubit, LanguageState>(
+                  builder: (context, state) {
+                    return Text(
+                      LocaleKeys.home_nowplaying.tr(),
+                      style: Theme.of(context).textTheme.labelLarge,
+                    );
+                  },
+                ),
               ),
-              HomeNowPlayingMovieList(data: state.movieNow,)
+              HomeNowPlayingMovieList(
+                data: state.movieNow,
+              )
             ],
           ),
         );

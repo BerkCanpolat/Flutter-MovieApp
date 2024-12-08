@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movieapp/product/state/app_get_it_read.dart';
+import 'package:flutter_movieapp/product/state/language_bloc/lang_bloc.dart';
 import 'package:flutter_movieapp/product/state/theme_bloc/theme_view_model.dart';
 
 class StateInitialize extends StatelessWidget {
@@ -11,7 +12,8 @@ class StateInitialize extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ThemeViewModel>.value(value: AppGetItRead.themeViewModel,)
+        BlocProvider<ThemeViewModel>.value(value: AppGetItRead.themeViewModel,),
+        BlocProvider(create: (context) => LanguageCubit())
       ], 
       child: child
     );

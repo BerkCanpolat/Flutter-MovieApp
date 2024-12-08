@@ -14,9 +14,18 @@ class SearchMovieEmptyBlocWidget extends StatelessWidget {
           children: [
             Padding(
               padding: const ProjectPadding.onlyLeftBottomTextSmall(),
-              child: Text('Search Movies', style: Theme.of(context).textTheme.labelLarge,),
+              child: BlocBuilder<LanguageCubit, LanguageState>(
+                builder: (context, state) {
+                  return Text(
+                    LocaleKeys.search_searchmovie.tr(),
+                    style: Theme.of(context).textTheme.labelLarge,
+                  );
+                },
+              ),
             ),
-            SearchEmptyMoviListWidget(data: state.movieModel,)
+            SearchEmptyMoviListWidget(
+              data: state.movieModel,
+            )
           ],
         );
       },

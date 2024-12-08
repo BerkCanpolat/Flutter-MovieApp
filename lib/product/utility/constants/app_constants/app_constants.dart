@@ -1,4 +1,4 @@
-abstract final class AppConstants {
+final class AppConstants {
   const AppConstants._();
 
   static const String genPackageName = 'gen';

@@ -1,3 +1,17 @@
 {
-    "home": "Home Page"
+    "home":{
+        "bottomHome": "Home",
+        "bottomSearch": "Search",
+        "bottomSettings": "Settings",
+        "nowplaying": "Now Playing Movies",
+        "popular": "Popular Movies"
+    },
+    "search":{
+        "searchmovie": "Search Movies",
+        "morelike": "More Like This"
+    },
+    "settings": {
+        "themeChange": "Change Theme",
+        "language": "Change Language"
+    }
 }
