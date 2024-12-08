@@ -1,6 +1,6 @@
 ---- TÜRKÇE ----
 
-
+Bu projede Veli Bacık hocanın Architecture Template youtube eğitim serisindeki mimari yaklaşım kullanılmıştır. 
 
 
 Movie App - Flutter Uygulaması
