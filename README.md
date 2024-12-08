@@ -1,4 +1,7 @@
----- Türkçe ----
+---- TÜRKÇE ----
+
+
+
 
 Movie App - Flutter Uygulaması
 Bu proje, Flutter kullanarak geliştirilmiş bir film uygulamasıdır. Kullanıcılara film listeleme, arama yapma, film detaylarına gitme, karanlık ve aydınlık tema geçişi yapma ve dil değiştirme gibi özellikler sunar. Uygulama, BLoC (Cubit) mimarisi ile geliştirilmiştir.
@@ -31,7 +34,16 @@ Uygulamayı çalıştırmak için şu komutu kullanabilirsiniz: flutter run
 Bu komut, projenizi çalıştırmaya başlayacak ve emülatörde veya bağlı bir cihazda uygulamanız açılacaktır.
 
 
----- English ----
+
+
+
+
+
+
+---- ENGLISH ----
+
+
+
 
 
 Movie App
