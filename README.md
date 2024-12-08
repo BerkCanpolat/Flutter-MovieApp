@@ -43,7 +43,7 @@ Bu komut, projenizi çalıştırmaya başlayacak ve emülatörde veya bağlı bi
 ---- ENGLISH ----
 
 
-
+In this project, the architectural approach in Veli Bacik's Architecture Template youtube training series was used.
 
 
 Movie App
