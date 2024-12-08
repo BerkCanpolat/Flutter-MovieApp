@@ -30,8 +30,8 @@ class SearchEmptyMoviListWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(ProjectRadius.small.value),
                   child: SizedBox(
-                    width: 125,
-                    height: 195,
+                    width: 110,
+                    height: 145,
                     child: ProjectNetworkImage(
                       url: data?.results?[index].backdropPath.toMovieImage.toString(),
                       icon: Icons.add,
@@ -41,9 +41,7 @@ class SearchEmptyMoviListWidget extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: Text(data?.results?[index].originalTitle ?? '', maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(
-                  fontSize: 14
-                ),),
+                child: Text(data?.results?[index].originalTitle ?? '', maxLines: 2, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.headlineSmall),
               )
             ],
           ),

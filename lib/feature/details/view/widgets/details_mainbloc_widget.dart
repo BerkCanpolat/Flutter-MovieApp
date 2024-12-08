@@ -58,18 +58,28 @@ class _DetailsBlocMainWidget extends StatelessWidget {
                         )
                       ],
                     ),
-                    Text(details?.title ?? ''),
+                    Padding(
+                      padding: const ProjectPadding.onlyTopAndBottom(),
+                      child: Center(child: Text(details?.title ?? '', style: Theme.of(context).textTheme.labelLarge,)),
+                    ),
                     Row(
                       children: [
-                        Text(details?.releaseDate != null
-                            ? DateTime.parse(details!.releaseDate!)
-                                .year
-                                .toString()
-                            : 'Tarih yok'),
-                        Text(genreText ?? '')
+                        Padding(
+                          padding: const ProjectPadding.onlyTopAndBottom(),
+                          child: Text(details?.releaseDate != null
+                              ? DateTime.parse(details!.releaseDate!)
+                                  .year
+                                  .toString()
+                              : 'Tarih yok', style: Theme.of(context).textTheme.titleMedium),
+                        ),
+                            SizedBox(width: 10,),
+                        Text(genreText ?? '', style: Theme.of(context).textTheme.titleMedium)
                       ],
                     ),
-                    Text(details?.overview ?? '')
+                    Padding(
+                      padding: const ProjectPadding.onlyTopAndBottom(),
+                      child: Text(details?.overview ?? '' , textAlign: TextAlign.center,style: Theme.of(context).textTheme.titleSmall),
+                    )
                   ],
                 );
         }

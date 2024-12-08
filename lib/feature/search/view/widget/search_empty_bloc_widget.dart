@@ -12,7 +12,10 @@ class SearchMovieEmptyBlocWidget extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Popular Movies'),
+            Padding(
+              padding: const ProjectPadding.onlyLeftBottomTextSmall(),
+              child: Text('Search Movies', style: Theme.of(context).textTheme.labelLarge,),
+            ),
             SearchEmptyMoviListWidget(data: state.movieModel,)
           ],
         );

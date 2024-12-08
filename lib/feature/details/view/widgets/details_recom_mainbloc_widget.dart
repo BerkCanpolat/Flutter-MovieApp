@@ -19,7 +19,10 @@ class _DetailsRecomBlocMainWidget extends StatelessWidget {
               : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('More Like This'),
+                  Padding(
+                    padding: const ProjectPadding.onlyTopAndBottom(),
+                    child: Text('More Like This', style: Theme.of(context).textTheme.labelLarge,),
+                  ),
                   GridView.builder(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,

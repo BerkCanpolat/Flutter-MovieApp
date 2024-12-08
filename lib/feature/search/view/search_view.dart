@@ -9,7 +9,11 @@ import 'package:flutter_movieapp/feature/search/view_model/search_view_model.dar
 import 'package:flutter_movieapp/feature/search/view_model/state/search_bloc_state.dart';
 import 'package:flutter_movieapp/product/navigator/app_router.dart';
 import 'package:flutter_movieapp/product/state/base/base_state.dart';
+import 'package:flutter_movieapp/product/utility/extensions/asset_extension.dart';
 import 'package:flutter_movieapp/product/utility/extensions/string_extension.dart';
+import 'package:flutter_movieapp/product/widget/project_image/project_network_image.dart';
+import 'package:flutter_movieapp/product/widget/project_padding/project_padding.dart';
+import 'package:gen/gen.dart';
 
 part 'widget/search_empty_bloc_widget.dart';
 part 'widget/search_textfield_widget.dart';

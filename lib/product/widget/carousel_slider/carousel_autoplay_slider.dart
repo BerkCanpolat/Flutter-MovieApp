@@ -29,7 +29,7 @@ class CarouselAutoplaySlider extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10,),
-              Text(movieModel.results?[index].name ?? '')
+              Text(movieModel.results?[index].name ?? '', style: Theme.of(context).textTheme.labelLarge)
             ],
           );
         },

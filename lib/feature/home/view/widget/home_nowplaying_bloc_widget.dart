@@ -14,7 +14,10 @@ class _HomeMovieBlocWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Now Playing Movies'),
+              Padding(
+                padding: const ProjectPadding.onlyLeftBottomTextSmall(),
+                child: Text('Now Playing Movies', style: Theme.of(context).textTheme.labelLarge,),
+              ),
               HomeNowPlayingMovieList(data: state.movieNow,)
             ],
           ),

@@ -16,7 +16,10 @@ class _HomePopularBlocWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Popular Movies'),
+              Padding(
+                padding: const ProjectPadding.onlyLeftBottomTextSmall(),
+                child: Text('Popular Movies', style: Theme.of(context).textTheme.labelLarge,),
+              ),
               HomePopularListWidget(data: state.movieTopRated,)
             ],
           ),

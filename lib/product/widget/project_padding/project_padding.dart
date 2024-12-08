@@ -11,6 +11,12 @@ final class ProjectPadding extends EdgeInsets{
 
   /// Only Padding
   
+  /// [ProjectPadding.onlyLeftBottomTextSmall] is left5, bottom 5
+  const ProjectPadding.onlyLeftBottomTextSmall() : super.only(left: 5, bottom: 5);
+
   /// [ProjectPadding.onlyLeftSmall] is 8
   const ProjectPadding.onlyLeftSmall() : super.only(left: 8);
+
+  /// [ProjectPadding.onlyTopAndBottom] is top 10 , bottom 10
+  const ProjectPadding.onlyTopAndBottom() : super.only(top: 10, bottom: 10);
 }

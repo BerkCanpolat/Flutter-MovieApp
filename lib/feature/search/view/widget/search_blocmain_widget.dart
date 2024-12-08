@@ -35,7 +35,7 @@ class _SearchBlocMainWidget extends StatelessWidget {
                 },
                 child: Column(
                   children: [
-                    searchMov?[index].backdropPath == null ? const SizedBox.shrink()
+                    searchMov?[index].backdropPath  == null ? Assets.images.logo.toImage(height: 110)
                     : SearchImage(
                       url: searchMov?[index].backdropPath.toMovieImage,
                     ),

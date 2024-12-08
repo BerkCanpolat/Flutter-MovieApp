@@ -15,7 +15,7 @@ class ProjectNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomNetworkImage(
       imageUrl: url,
-      loadingWidget: Assets.lotties.animZombie.lottieBuilder(),
+      loadingWidget: Assets.lotties.loading.lottieBuilder(),
       emptyWidget: Column(
         children: [
           Text(text ?? 'empty'),

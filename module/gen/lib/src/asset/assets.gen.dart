@@ -40,8 +40,14 @@ class $AssetsImagesGen {
   AssetGenImage get imgFlags =>
       const AssetGenImage('assets/images/img_flags.png');
 
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
+  /// File path: assets/images/netflix.png
+  AssetGenImage get netflix => const AssetGenImage('assets/images/netflix.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [imgFlags];
+  List<AssetGenImage> get values => [imgFlags, logo, netflix];
 }
 
 class $AssetsLottiesGen {
@@ -51,8 +57,16 @@ class $AssetsLottiesGen {
   LottieGenImage get animZombie =>
       const LottieGenImage('assets/lotties/anim_zombie.json');
 
+  /// File path: assets/lotties/loading.json
+  LottieGenImage get loading =>
+      const LottieGenImage('assets/lotties/loading.json');
+
+  /// File path: assets/lotties/netflix.json
+  LottieGenImage get netflix =>
+      const LottieGenImage('assets/lotties/netflix.json');
+
   /// List of all assets
-  List<LottieGenImage> get values => [animZombie];
+  List<LottieGenImage> get values => [animZombie, loading, netflix];
 }
 
 class Assets {

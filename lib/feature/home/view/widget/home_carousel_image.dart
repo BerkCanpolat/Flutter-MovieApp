@@ -16,7 +16,7 @@ class HomeCarouselImage extends StatelessWidget {
     return CustomNetworkImage(
       imageUrl: url,
       size: const Size(315, 215),
-      loadingWidget: Assets.lotties.animZombie.lottieBuilder(),
+      loadingWidget: Assets.lotties.loading.lottieBuilder(),
       emptyWidget: Column(
         children: [
           Text(text ?? 'empty'),

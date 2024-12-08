@@ -7,6 +7,7 @@ class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      title: Assets.images.logo.toImage(),
       actions: const [
         _Loading()
       ],

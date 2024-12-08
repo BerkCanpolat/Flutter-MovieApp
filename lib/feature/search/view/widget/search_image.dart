@@ -18,7 +18,7 @@ class SearchImage extends StatelessWidget {
     return CustomNetworkImage(
       size: Size(130, 95),
       imageUrl: url,
-      loadingWidget: Assets.lotties.animZombie.lottieBuilder(),
+      loadingWidget: Assets.lotties.loading.lottieBuilder(),
       emptyWidget: Center(child: Icon(Icons.hourglass_empty),),
     );
   }

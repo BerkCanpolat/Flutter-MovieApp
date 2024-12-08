@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_movieapp/product/navigator/app_router.dart';
+import 'package:flutter_movieapp/product/utility/extensions/asset_extension.dart';
+import 'package:gen/gen.dart';
 
 @RoutePage()
 class SplashView extends StatefulWidget {
@@ -15,16 +17,15 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3), (){
+    Timer(const Duration(seconds: 3), (){
       context.router.replace(const MainRoute());
     });
   }
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('SPLASSSH'),),
+    return Scaffold(
+      body: Center(child: Assets.lotties.netflix.lottieBuilder(height: 300),)
     );
   }
 }

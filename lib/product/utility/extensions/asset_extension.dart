@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_movieapp/product/utility/constants/app_constants/app_constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gen/gen.dart';
@@ -11,4 +12,8 @@ extension LottieExtension on LottieGenImage {
 extension SvgExtension on SvgGenImage {
   SvgPicture toSvg({double height = 200}) =>
       this.svg(package: AppConstants.genPackageName, height: height);
+}
+
+extension ImageExtension on AssetGenImage {
+  Image toImage({double height = 50}) => image(package: AppConstants.genPackageName, height: height); 
 }

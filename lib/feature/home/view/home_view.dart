@@ -7,7 +7,11 @@ import 'package:flutter_movieapp/feature/home/view/widget/home_popular_list_widg
 import 'package:flutter_movieapp/feature/home/view_model/home_view_model.dart';
 import 'package:flutter_movieapp/feature/home/view_model/state/home_bloc_state.dart';
 import 'package:flutter_movieapp/product/state/base/base_state.dart';
+import 'package:flutter_movieapp/product/utility/extensions/asset_extension.dart';
 import 'package:flutter_movieapp/product/widget/carousel_slider/carousel_autoplay_slider.dart';
+import 'package:flutter_movieapp/product/widget/project_image/project_network_image.dart';
+import 'package:flutter_movieapp/product/widget/project_padding/project_padding.dart';
+import 'package:gen/gen.dart';
 
 part 'widget/home_carousel_bloc_widget.dart';
 part 'widget/home_nowplaying_bloc_widget.dart';
@@ -39,6 +43,7 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
               /// Now Playing Movies
               _HomeMovieBlocWidget(),
 
+              SizedBox(height: 15,),
               /// Popular Movies
               _HomePopularBlocWidget()
             ],
