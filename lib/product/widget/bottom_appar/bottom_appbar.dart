@@ -13,6 +13,7 @@ final class MainView extends StatelessWidget {
       routes: const [
         HomeRoute(),
         SearchRoute(),
+        SettingRoute()
       ],
       builder: (context, child, _) {
         final tabsRouter = AutoTabsRouter.of(context);

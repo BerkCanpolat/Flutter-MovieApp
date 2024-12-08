@@ -25,6 +25,10 @@ final class AppBottomNavigationBar extends StatelessWidget {
           label: 'Search',
           icon: Icon(Icons.search),
         ),
+        BottomNavigationBarItem(
+          label: 'Settings',
+          icon: Icon(Icons.settings),
+        ),
       ],
     );
   }

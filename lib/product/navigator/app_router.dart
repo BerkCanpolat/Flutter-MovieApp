@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movieapp/feature/details/view/details_view.dart';
 import 'package:flutter_movieapp/feature/home/view/home_view.dart';
 import 'package:flutter_movieapp/feature/search/view/search_view.dart';
+import 'package:flutter_movieapp/feature/settings/view/setting_view.dart';
 import 'package:flutter_movieapp/feature/splash/splash_view.dart';
 import 'package:flutter_movieapp/product/widget/bottom_appar/bottom_appbar.dart';
 
@@ -18,7 +19,8 @@ final class AppRouter extends _$AppRouter{
     children: [
       AutoRoute(page: HomeRoute.page),
       AutoRoute(page: SearchRoute.page),
+      AutoRoute(page: SettingRoute.page)
     ]),
-    AutoRoute(page: DetailsRoute.page)
+    AutoRoute(page: DetailsRoute.page),
   ];
 }

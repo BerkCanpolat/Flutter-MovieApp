@@ -6,10 +6,11 @@ import 'package:flutter_movieapp/feature/home/view/widget/home_nowplaying_list_w
 import 'package:flutter_movieapp/feature/home/view/widget/home_popular_list_widget.dart';
 import 'package:flutter_movieapp/feature/home/view_model/home_view_model.dart';
 import 'package:flutter_movieapp/feature/home/view_model/state/home_bloc_state.dart';
+import 'package:flutter_movieapp/product/init/theme/custom_light_theme.dart';
+import 'package:flutter_movieapp/product/navigator/app_router.dart';
 import 'package:flutter_movieapp/product/state/base/base_state.dart';
 import 'package:flutter_movieapp/product/utility/extensions/asset_extension.dart';
 import 'package:flutter_movieapp/product/widget/carousel_slider/carousel_autoplay_slider.dart';
-import 'package:flutter_movieapp/product/widget/project_image/project_network_image.dart';
 import 'package:flutter_movieapp/product/widget/project_padding/project_padding.dart';
 import 'package:gen/gen.dart';
 
@@ -31,7 +32,7 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => homeViewModel,
-      child: const Scaffold(
+      child:  const Scaffold(
         appBar: _HomeAppBar(),
         body: SingleChildScrollView(
           child: Column(

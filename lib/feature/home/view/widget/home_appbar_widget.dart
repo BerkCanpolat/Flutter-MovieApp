@@ -8,7 +8,10 @@ class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       title: Assets.images.logo.toImage(),
-      actions: const [
+      actions: [
+        IconButton(onPressed: (){
+          context.router.push(SettingRoute());
+        }, icon: const Icon(Icons.add)),
         _Loading()
       ],
     );
