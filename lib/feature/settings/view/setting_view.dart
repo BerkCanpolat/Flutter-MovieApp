@@ -35,7 +35,7 @@ class _SettingViewState extends BaseState<SettingView> {
                 BlocBuilder<ThemeViewModel, ThemeState>(
                   builder: (context, state) {
                     bool isDarkMode =
-                        state.themeData == CustomLightTheme().themeData;
+                        state.themeData == CustomDarkTheme().themeData;
                     return Container(
                       height: 100,
                       width: 100,
@@ -44,8 +44,8 @@ class _SettingViewState extends BaseState<SettingView> {
                         child: GestureDetector(
                           onTap: () {
                             themeViewModel.changeThemeMode(isDarkMode
-                                ? CustomDarkTheme().themeData
-                                : CustomLightTheme().themeData);
+                                ? CustomLightTheme().themeData
+                                : CustomDarkTheme().themeData);
                           },
                           child: AnimatedSwitcher(
                               duration: const Duration(seconds: 1),

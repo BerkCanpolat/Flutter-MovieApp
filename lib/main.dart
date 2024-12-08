@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
+      debugShowCheckedModeBanner: false,
       locale: context.locale,
       theme: context.watch<ThemeViewModel>().state.themeData,
       routerConfig: _appRouter.config(),

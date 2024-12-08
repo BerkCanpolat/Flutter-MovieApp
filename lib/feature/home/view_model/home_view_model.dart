@@ -12,10 +12,8 @@ final class HomeViewModel extends Cubit<HomeBlocState>{
 
   Future<void> fetchMovieNowPlaying() async {
     changeLoading();
-    print("BLOCDA HATA MEYDANA GELDİ");
     final response = await _movieIservice.getMovieNowPlaying();
     emit(state.copyWith(movieNow: response));
-    print("New State: ${state.movieNow}");
     changeLoading();
   }
 
