@@ -73,6 +73,7 @@ This will launch the Movie App on your device or emulator.
 ![one](https://github.com/user-attachments/assets/f519b411-3475-4805-a2e7-b230f3e14d6c)
 
 
+![two](https://github.com/user-attachments/assets/3bfc0915-94ab-4e89-bf77-78a0185240e9)
 
 
 
